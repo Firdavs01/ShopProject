@@ -1,5 +1,6 @@
 "use strict"
 
+import { addToCart } from "./cart.js"
 import { mainListElement } from "./elemets.js"
 import { renderCart } from "./renderCart.js"
 import { productsApi } from "./shopAPI.js"
@@ -12,6 +13,8 @@ mainListElement.addEventListener("click", e => {
         const id = +e.target.dataset.id
 
         const selectedProduct = products.find(product => product.id === id)
+
+        addToCart(selectedProduct)
     }
 })
 

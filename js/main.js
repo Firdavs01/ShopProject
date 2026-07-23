@@ -5,6 +5,10 @@ import { mainListElement } from "./elemets.js"
 import { renderCart } from "./renderCart.js"
 import { productsApi } from "./shopAPI.js"
 
+import { initSidebar } from "./sidebar.js"
+
+initSidebar()
+
 const products = await productsApi()
 
 mainListElement.addEventListener("click", e => {
@@ -17,6 +21,7 @@ mainListElement.addEventListener("click", e => {
         addToCart(selectedProduct)
     }
 })
+
 
 
 

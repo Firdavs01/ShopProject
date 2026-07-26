@@ -9,14 +9,16 @@ function renderCart(productsCarts) {
     
         cartElement.innerHTML = `
             <img src="${product.image}" class="product__img">
-            <h1>${product.title}</h1>
-            <p>
-                ${product.description} <br>
+            <h1 class="cartElement__title">${product.title}</h1>
+            <p class="cartElement__description">
                 ${product.price}
             </p>
             <button data-id="${product.id}" class="buy-btn">Buy</button>
         `
-    
+        cartElement.style.display="flex"
+        cartElement.style.flexDirection="column"
+        cartElement.style.justifyContent="center"
+        cartElement.style.alignItems="center"
         mainListElement.appendChild(cartElement)
     }
 }

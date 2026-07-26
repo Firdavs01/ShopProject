@@ -7,6 +7,8 @@ import { productsApi } from "./shopAPI.js"
 
 import { initSidebar } from "./sidebar.js"
 
+import { renderBasket } from "./renderBasket.js"
+
 initSidebar()
 
 const products = await productsApi()
@@ -26,3 +28,4 @@ mainListElement.addEventListener("click", e => {
 
 
 renderCart(products)
+renderBasket()

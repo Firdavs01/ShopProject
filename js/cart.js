@@ -13,6 +13,7 @@ function addToCart(product) {
 
         const newItem = {
             id: product.id,
+            img: product.image,
             name: product.title,
             price: product.price,
             quantity: 1 // создаем товар со стартовым количеством 1

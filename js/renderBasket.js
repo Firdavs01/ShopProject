@@ -1,30 +1,31 @@
-"use strict"
+"use strict";
 
-import { getFromStorage } from "./stotage.js"
+import { getFromStorage } from "./stotage.js";
 import { sidebarListElement } from "./elemets.js";
-
+import { calcSum } from "./calcCartPrices.js";
+import { totalPriceElement } from "./elemets.js";
 
 function renderBasket() {
-    const basket = getFromStorage()
+  const basket = getFromStorage();
+  const total = calcSum(basket);
 
-    sidebarListElement.innerHTML = ''
+  sidebarListElement.innerHTML = "";
 
-    for (let product of basket) {
-        const div = document.createElement("div");
+  for (let product of basket) {
+    const div = document.createElement("div");
 
-        div.innerHTML = `
-            <img src="${product.img}" class="cartProduct__img">
-            <h1>${product.name}</h1>
+    div.innerHTML = `
+        <img src="${product.img}" class="cartProduct__img">
+        <h1>${product.name}</h1>
             <p>
-                ${product.quantity} <br>
+            ${product.quantity} <br>
                 ${product.price}
             </p>
             <button data-id="${product.id}" class="cartBuy-btn">Buy</button>
-        `
-
-        sidebarListElement.appendChild(div)
-        console.log(product)
-    }
+            `;
+    sidebarListElement.appendChild(div);
+  }
+  totalPriceElement.innerHTML = total;
 }
 
-export {renderBasket}
+export { renderBasket };

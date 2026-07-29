@@ -18,10 +18,14 @@ function renderBasket() {
         <img src="${product.img}" class="cartProduct__img">
         <h1>${product.name}</h1>
             <p>
-            ${product.quantity} <br>
+              <div>
+              <button data-action="minus" data-id="${product.id}">-</button>
+                ${product.quantity}
+              <button data-action="plus" data-id="${product.id}">+</button>
+              </div>
                 ${product.price}
             </p>
-            <button data-id="${product.id}" class="cartBuy-btn">Buy</button>
+              <button data-id="${product.id}" class="cartBuy-btn">Buy</button>
             `;
     sidebarListElement.appendChild(div);
   }

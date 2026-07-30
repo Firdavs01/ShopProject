@@ -1,7 +1,7 @@
 "use strict";
 
 import { addToCart } from "./cart.js";
-import { mainListElement, sidebarListElement } from "./elemets.js";
+import { clearBasketElement, mainListElement, sidebarListElement } from "./elemets.js";
 import { renderCart } from "./renderCart.js";
 import { productsApi } from "./shopAPI.js";
 
@@ -50,6 +50,12 @@ sidebarListElement.addEventListener("click", (e) => {
     renderBasket();
   }
 });
+
+clearBasketElement.addEventListener("click", () => {
+  setToStorage([])
+  renderBasket()
+})
+
 
 renderCart(products);
 renderBasket();

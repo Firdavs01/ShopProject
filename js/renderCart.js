@@ -3,6 +3,7 @@
 import { mainListElement } from "./elemets.js";
 
 function renderCart(productsCarts) {
+    mainListElement.innerHTML = ''  
     for (let product of productsCarts) {
 
         const cartElement = document.createElement("div");

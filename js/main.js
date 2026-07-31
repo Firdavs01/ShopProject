@@ -10,6 +10,7 @@ import { initSidebar } from "./sidebar.js";
 import { renderBasket } from "./renderBasket.js";
 
 import { getFromStorage, setToStorage } from "./stotage.js";
+import { search } from "./search.js";
 
 initSidebar();
 
@@ -59,3 +60,4 @@ clearBasketElement.addEventListener("click", () => {
 
 renderCart(products);
 renderBasket();
+search()

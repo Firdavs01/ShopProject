@@ -6,5 +6,6 @@ const totalPriceElement = document.querySelector("#totalPrices")
 const clearBasketElement = document.querySelector("#clearBasket");
 const searchElement = document.querySelector("#search");
 const categoryElement = document.querySelector("#category");
+const sortElement = document.querySelector("#sort");
 
-export {mainListElement, sidebarListElement, totalPriceElement, clearBasketElement, searchElement, categoryElement}
+export {mainListElement, sidebarListElement, totalPriceElement, clearBasketElement, searchElement, categoryElement, sortElement}

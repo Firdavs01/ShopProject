@@ -14,6 +14,8 @@ import { search } from "./search.js";
 
 import { showCategoryProducts } from "./category.js";
 
+import { sortProducts } from "./sortProducts.js";
+
 initSidebar();
 
 const products = await productsApi();
@@ -63,3 +65,4 @@ showCategoryProducts()
 renderCart(products);
 renderBasket();
 search()
+sortProducts()

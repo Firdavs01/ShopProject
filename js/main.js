@@ -12,10 +12,6 @@ import { renderBasket } from "./renderBasket.js";
 import { getFromStorage, setToStorage } from "./stotage.js";
 import { search } from "./search.js";
 
-import { showCategoryProducts } from "./category.js";
-
-import { sortProducts } from "./sortProducts.js";
-
 initSidebar();
 
 const products = await productsApi();
@@ -60,9 +56,7 @@ clearBasketElement.addEventListener("click", () => {
   setToStorage([])
   renderBasket()
 })
-showCategoryProducts()
 
 renderCart(products);
 renderBasket();
 search()
-sortProducts()

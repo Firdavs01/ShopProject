@@ -1,9 +1,14 @@
 "use strict"
 
+
 import { mainListElement } from "./elemets.js";
 
 function renderCart(productsCarts) {
+    console.log("RENDER CART:", productsCarts);
+    console.trace();
+
     mainListElement.innerHTML = ''  
+
     for (let product of productsCarts) {
 
         const cartElement = document.createElement("div");

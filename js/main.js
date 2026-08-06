@@ -1,5 +1,7 @@
 "use strict";
 
+console.log("js  main start")
+
 import { addToCart } from "./cart.js";
 import { clearBasketElement, mainListElement, sidebarListElement } from "./elemets.js";
 import { renderCart } from "./renderCart.js";
@@ -22,7 +24,13 @@ mainListElement.addEventListener("click", (e) => {
 
     const selectedProduct = products.find((product) => product.id === id);
 
+     console.log("BEFORE BUY:", mainListElement.children.length);
+
     addToCart(selectedProduct);
+    renderBasket()
+
+
+    console.log("AFTER BUY:", mainListElement.children.length);
   }
 });
 

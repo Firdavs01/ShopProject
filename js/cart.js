@@ -1,9 +1,8 @@
 import { getFromStorage } from "./stotage.js"
 import { setToStorage } from "./stotage.js"
 
-const cart = getFromStorage()
-
 function addToCart(product) {
+    const cart = getFromStorage()
     const existsProduct = cart.find(prod => product.id === prod.id)
 
     if (existsProduct) {

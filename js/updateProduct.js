@@ -2,12 +2,15 @@
 
 import { productsApi } from "./shopAPI.js"
 import { renderCart } from "./renderCart.js"
+import { mainListElement } from "./elemets.js"
 
 const products = await productsApi()
 
-export function updateProducts(searchText, selectedCategory, selectedSort) {
-    const filtered = products.filter(product => product.title.toLowerCase().includes(searchText.toLowerCase()))
+export function updateProducts(searchText, selectedCategory, selectedSort) {  
 
+    
+    const filtered = products.filter(product => product.title.toLowerCase().includes(searchText.toLowerCase()))
+    
     const categoryProducts = filtered.filter(product => {
         if (product.category === selectedCategory || selectedCategory === "all") {
             return true
@@ -16,7 +19,7 @@ export function updateProducts(searchText, selectedCategory, selectedSort) {
             return false
         })
     
-    let selectedSorted
+        let selectedSorted
         if (selectedSort === "asc") {
             selectedSorted = [...categoryProducts].sort((a, b) => a.price - b.price)
         } else if (selectedSort === "desc") {
@@ -24,5 +27,20 @@ export function updateProducts(searchText, selectedCategory, selectedSort) {
         } else {
             selectedSorted = categoryProducts
         }
-    renderCart(selectedSorted)
+
+        if (selectedSorted.length === 0) {
+
+        mainListElement.innerHTML = "Not found"
+
+    } else {
+        
+
+        console.log("SEARCH:", searchText);
+        console.log("CATEGORY:", selectedCategory);
+        console.log("SORT:", selectedSort);
+        console.log("RESULT:", selectedSorted.length);
+        
+        renderCart(selectedSorted)
+    }
+    console.log("FILTER:", selectedSorted);
 }

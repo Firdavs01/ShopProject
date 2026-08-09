@@ -1,12 +1,13 @@
 "use strict";
 
 import { getFromStorage } from "./stotage.js";
-import { sidebarListElement } from "./elemets.js";
+import { cartQuantity, sidebarListElement, totalPriceElement } from "./elemets.js";
 import { calcSum } from "./calcCartPrices.js";
-import { totalPriceElement } from "./elemets.js";
+import { calcCartQuantity } from "./calcCartQuantity.js";
 
 function renderBasket() {
   const basket = getFromStorage();
+  const quantity = calcCartQuantity(basket)
   const total = calcSum(basket);
 
   sidebarListElement.innerHTML = "";
@@ -28,7 +29,9 @@ function renderBasket() {
               <button data-id="${product.id}" class="cartBuy-btn">Buy</button>
             `;
     sidebarListElement.appendChild(div);
+
   }
+  cartQuantity.innerHTML = quantity
   totalPriceElement.innerHTML = total;
 }
 

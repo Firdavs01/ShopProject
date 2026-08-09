@@ -1,4 +1,4 @@
-"user strict"
+"use strict"
 
 function calcSum(products) {
     let total = 0;

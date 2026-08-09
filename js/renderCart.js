@@ -4,8 +4,6 @@
 import { mainListElement } from "./elemets.js";
 
 function renderCart(productsCarts) {
-    console.log("RENDER CART:", productsCarts);
-    console.trace();
 
     mainListElement.innerHTML = ''  
 

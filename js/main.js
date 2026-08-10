@@ -68,11 +68,14 @@ clearBasketElement.addEventListener("click", () => {
 sidebarListElement.addEventListener("click", (e) => {
   let products = getFromStorage()
 
-  const id = +e.target.dataset.id
+  if (e.target.classList.contains("deleteCart-btn")) {
+    const id = +e.target.dataset.id
+  
+    products = products.filter(product => product.id !== id)
+    setToStorage(products)
+    renderBasket()
+  }
 
-  products = products.filter(product => product.id !== id)
-  setToStorage(products)
-  renderBasket()
 })
 
 renderCart(products);

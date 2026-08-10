@@ -10,3 +10,4 @@ export function calcCartQuantity(basket) {
     return result
 }
 
+    

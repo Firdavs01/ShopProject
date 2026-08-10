@@ -27,6 +27,7 @@ function renderBasket() {
                 ${product.price}
             </p>
               <button data-id="${product.id}" class="cartBuy-btn">Buy</button>
+              <button data-id="${product.id}" class="deleteCart-btn">Delete</button>
             `;
     sidebarListElement.appendChild(div);
 

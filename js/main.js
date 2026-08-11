@@ -13,6 +13,7 @@ import { renderBasket } from "./renderBasket.js";
 
 import { getFromStorage, setToStorage } from "./stotage.js";
 import { search } from "./search.js";
+import { checkout } from "./checkout.js";
 
 initSidebar();
 
@@ -78,6 +79,7 @@ sidebarListElement.addEventListener("click", (e) => {
 
 })
 
+checkout()
 renderCart(products);
 renderBasket();
 search()

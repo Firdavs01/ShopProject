@@ -8,5 +8,6 @@ const searchElement = document.querySelector("#search");
 const categoryElement = document.querySelector("#category");
 const sortElement = document.querySelector("#sort");
 const cartQuantity = document.querySelector("#cartQuantity");
+const checkoutBtnElement = document.querySelector("#checkoutBtn");
 
-export {mainListElement, sidebarListElement, totalPriceElement, clearBasketElement, searchElement, categoryElement, sortElement, cartQuantity}
+export {mainListElement, sidebarListElement, totalPriceElement, clearBasketElement, searchElement, categoryElement, sortElement, cartQuantity, checkoutBtnElement}

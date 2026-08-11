@@ -4,6 +4,7 @@ import { getFromStorage } from "./stotage.js";
 import { cartQuantity, sidebarListElement, totalPriceElement } from "./elemets.js";
 import { calcSum } from "./calcCartPrices.js";
 import { calcCartQuantity } from "./calcCartQuantity.js";
+import { updateCheckoutButton } from "./checkout.js";
 
 function renderBasket() {
   const basket = getFromStorage();
@@ -34,6 +35,7 @@ function renderBasket() {
   }
   cartQuantity.innerHTML = quantity
   totalPriceElement.innerHTML = total;
+  updateCheckoutButton()
 }
 
 export { renderBasket };

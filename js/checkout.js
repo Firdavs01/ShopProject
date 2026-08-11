@@ -1,7 +1,8 @@
 "use strict"
 
 import { checkoutBtnElement } from "./elemets.js";
-import { getFromStorage } from "./stotage.js";
+import { renderBasket } from "./renderBasket.js";
+import { getFromStorage, setToStorage } from "./stotage.js";
 
 export function updateCheckoutButton() {
 
@@ -15,8 +16,15 @@ export function updateCheckoutButton() {
 }
 
 export function checkout() {
-    const basket = getFromStorage()
+    
     checkoutBtnElement.addEventListener("click", () => {
-
+        const basket = getFromStorage()
+        if (basket.length === 0) {
+            return
+        } else {
+            alert("Товар оформлен")
+            setToStorage([])
+            renderBasket()
+        }
     })
 }

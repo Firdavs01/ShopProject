@@ -20,6 +20,9 @@ initSidebar();
 const products = await productsApi();
 
 mainListElement.addEventListener("click", (e) => {
+
+  let storageProducts = getFromStorage()
+
   if (e.target.classList.contains("buy-btn")) {
     const id = +e.target.dataset.id;
 
@@ -29,9 +32,36 @@ mainListElement.addEventListener("click", (e) => {
 
     addToCart(selectedProduct);
     renderBasket()
+    renderCart(products)
 
 
     console.log("AFTER BUY:", mainListElement.children.length);
+  }
+
+  // вот внизу наши файлы не путай
+
+    if (e.target.dataset.action === "plus") {
+    const id = +e.target.dataset.id;
+
+    const selectedButton = storageProducts.find((product) => product.id === id);
+
+    selectedButton.quantity++;
+
+    setToStorage(storageProducts);
+    renderCart(products);
+    renderBasket()
+  } else if (e.target.dataset.action === "minus") {
+    const id = +e.target.dataset.id;
+    const selectedButton = storageProducts.find((product) => product.id === id);
+
+    selectedButton.quantity--;
+
+    if (selectedButton.quantity < 1) {
+      storageProducts = storageProducts.filter((product) => product.id !== id);
+    }
+    setToStorage(storageProducts);
+    renderCart(products);
+    renderBasket()
   }
 });
 
@@ -53,7 +83,7 @@ sidebarListElement.addEventListener("click", (e) => {
 
     selectedButton.quantity--;
 
-    if (selectedButton.quantity < 1) {
+    if (selectedButton.quantity < 1) {  
       cartProducts = cartProducts.filter((product) => product.id !== id);
     }
     setToStorage(cartProducts);
@@ -67,13 +97,14 @@ clearBasketElement.addEventListener("click", () => {
 })
 
 sidebarListElement.addEventListener("click", (e) => {
-  let products = getFromStorage()
+  let productsFromStorage = getFromStorage()
 
   if (e.target.classList.contains("deleteCart-btn")) {
     const id = +e.target.dataset.id
   
-    products = products.filter(product => product.id !== id)
-    setToStorage(products)
+    productsFromStorage = productsFromStorage.filter(product => product.id !== id)
+    setToStorage(productsFromStorage)
+    renderCart(products)
     renderBasket()
   }
 

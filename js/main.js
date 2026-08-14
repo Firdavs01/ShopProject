@@ -88,6 +88,7 @@ sidebarListElement.addEventListener("click", (e) => {
     }
     setToStorage(cartProducts);
     renderBasket();
+    renderCart(products)
   }
 });
 

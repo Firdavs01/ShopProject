@@ -71,7 +71,7 @@ mainListElement.addEventListener("click", (e) => {
 
   // datas for favoriteCarts
 
-  if (e.target.classlist.contains('liked-btn')){
+  if (e.target.classList.contains('liked-btn')){
     const id = +e.target.dataset.id
 
     favorites(id, products)
@@ -130,4 +130,3 @@ checkout();
 renderCart(products);
 renderBasket();
 search();
-favorites()

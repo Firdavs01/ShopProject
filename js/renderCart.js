@@ -1,7 +1,7 @@
 "use strict";
 
 import { mainListElement } from "./elemets.js";
-import { getFromStorage } from "./stotage.js";
+import { getFromStorage, getFromStorageForFavoriteCarts } from "./stotage.js";
 
 function renderCart(productsCarts) {
   mainListElement.innerHTML = "";
@@ -13,7 +13,19 @@ function renderCart(productsCarts) {
       (productfind) => productfind.id === product.id,
     );
 
+    const favoritesArr = getFromStorageForFavoriteCarts()
+    const favoriteProduct = favoritesArr.find(favProduct => favProduct.id === product.id)
+    
+
     const cartElement = document.createElement("div");
+
+    let favoriteIcon;
+
+    if (favoriteProduct) {
+      favoriteIcon = "♥"
+    } else {
+      favoriteIcon = "♡"
+    }
 
     if (!productFinded) {
       cartElement.innerHTML = `
@@ -24,7 +36,8 @@ function renderCart(productsCarts) {
                 </p>
     
                 <button data-id="${product.id}" class="buy-btn">Buy</button>
-                <button data-id="${product.id}" class="liked-btn" id="likedBtn">♡</button>
+                
+                <button data-id="${product.id}" class="liked-btn" id="likedBtn">${favoriteIcon}</button>
             `;
     } else {
       cartElement.innerHTML = `
@@ -39,6 +52,8 @@ function renderCart(productsCarts) {
                     <button data-action="minus" data-id="${productFinded.id}">-</button>
                     ${productFinded.quantity}
                     <button data-action="plus" data-id="${productFinded.id}">+</button>
+                    <button data-id="${product.id}" class="liked-btn" id="likedBtn">${favoriteIcon}</button>
+
                 </div>
                 </p>
                 `;

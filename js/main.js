@@ -5,7 +5,9 @@ console.log("js  main start");
 import { addToCart } from "./cart.js";
 import {
   clearBasketElement,
+  favoriteBtnElement,
   mainListElement,
+  mainPageBtnElement,
   sidebarListElement,
 } from "./elemets.js";
 import { renderCart } from "./renderCart.js";
@@ -15,7 +17,7 @@ import { initSidebar } from "./sidebar.js";
 
 import { renderBasket } from "./renderBasket.js";
 
-import { getFromStorage, setToStorage } from "./stotage.js";
+import { getFromStorage, getFromStorageForFavoriteCarts, setToStorage } from "./stotage.js";
 import { search } from "./search.js";
 import { checkout } from "./checkout.js";
 import { favorites } from "./favorites.js";
@@ -23,6 +25,10 @@ import { favorites } from "./favorites.js";
 initSidebar();
 
 const products = await productsApi();
+
+mainPageBtnElement.addEventListener("click", () => {
+  renderCart(products)
+})
 
 mainListElement.addEventListener("click", (e) => {
   let storageProducts = getFromStorage();
@@ -126,6 +132,11 @@ sidebarListElement.addEventListener("click", (e) => {
   }
 });
 
+favoriteBtnElement.addEventListener("click", () => {
+  const favoriteCartArr = getFromStorageForFavoriteCarts()
+
+  renderCart(favoriteCartArr)
+})
 checkout();
 renderCart(products);
 renderBasket();

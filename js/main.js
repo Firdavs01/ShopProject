@@ -6,6 +6,7 @@ import { addToCart } from "./cart.js";
 import {
   clearBasketElement,
   favoriteBtnElement,
+  favoritiesCountElement,
   mainListElement,
   mainPageBtnElement,
   sidebarListElement,
@@ -21,6 +22,7 @@ import { getFromStorage, getFromStorageForFavoriteCarts, setToStorage } from "./
 import { search } from "./search.js";
 import { checkout } from "./checkout.js";
 import { favorites } from "./favorites.js";
+import { updateFavoritiesCount } from "./updateFavoritiesCount.js";
 
 initSidebar();
 
@@ -135,9 +137,13 @@ sidebarListElement.addEventListener("click", (e) => {
 favoriteBtnElement.addEventListener("click", () => {
   const favoriteCartArr = getFromStorageForFavoriteCarts()
 
+  favoritiesCountElement.textContent = favoriteCartArr.length
+
+
   renderCart(favoriteCartArr)
 })
 checkout();
 renderCart(products);
 renderBasket();
 search();
+updateFavoritiesCount()

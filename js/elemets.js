@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 const mainListElement = document.querySelector("#mainList");
 const sidebarListElement = document.querySelector("#sidebar__list");
@@ -11,5 +11,19 @@ const cartQuantity = document.querySelector("#cartQuantity");
 const checkoutBtnElement = document.querySelector("#checkoutBtn");
 const favoriteBtnElement = document.querySelector("#favoriteBtn");
 const mainPageBtnElement = document.querySelector("#mainPageBtn");
+const favoritiesCountElement = document.querySelector("#favoritesCount");
 
-export {mainListElement, sidebarListElement, totalPriceElement, clearBasketElement, searchElement, categoryElement, sortElement, cartQuantity, checkoutBtnElement, favoriteBtnElement, mainPageBtnElement}
+export {
+  mainListElement,
+  sidebarListElement,
+  totalPriceElement,
+  clearBasketElement,
+  searchElement,
+  categoryElement,
+  sortElement,
+  cartQuantity,
+  checkoutBtnElement,
+  favoriteBtnElement,
+  mainPageBtnElement,
+  favoritiesCountElement,
+};

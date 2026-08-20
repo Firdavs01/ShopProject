@@ -4,6 +4,7 @@ console.log("js  main start");
 
 import { addToCart } from "./cart.js";
 import {
+  categoryElement,
   clearBasketElement,
   favoriteBtnElement,
   favoritiesCountElement,
@@ -142,6 +143,20 @@ favoriteBtnElement.addEventListener("click", () => {
 
   renderCart(favoriteCartArr)
 })
+
+categoryElement.addEventListener("change", (e) => {
+  const selectCategory = e.target.value
+  let productsArr = []
+
+  if (selectCategory === "all") {
+    productsArr = products
+  } else {
+    productsArr = products.filter(product => product.category === selectCategory)
+  }
+
+  renderCart(productsArr)
+})
+
 checkout();
 renderCart(products);
 renderBasket();
